@@ -10,4 +10,4 @@ Projeto de implementação do algoritmo de fogo do jogo Doom;
 
 ### [Demo](https://maxwellkenned.github.io/doom-fire-algorithm/)
 
-[![DEMO PROJETCT](https://github.com/maxwellkenned/doom-fire-algorithm/tree/main/docs/static/img/demo.png)](https://maxwellkenned.github.io/doom-fire-algorithm/)
+[![DEMO PROJETCT](./docs/static/img/demo.png)](https://maxwellkenned.github.io/doom-fire-algorithm/)
