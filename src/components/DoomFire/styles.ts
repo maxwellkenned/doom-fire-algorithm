@@ -10,7 +10,7 @@ export const Container = styled.section`
 
 export const Table = styled.table`
   border-collapse: collapse;
-  /* border: 1px solid #000; */
+  background-color: #fff;
 
   box-shadow: 0 2px 20px -10px rgba(0, 0, 0, 1);
 `
