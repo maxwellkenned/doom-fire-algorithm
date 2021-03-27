@@ -45,20 +45,15 @@ const DoomFire: React.FC<IDoomFireProps> = ({
         return
       }
 
-      const decay = Math.floor(Math.random() * 5)
-
-      if (firePixelsArray[belowPixelIndex] - decay < 0) {
-        return setFirePixelsArray(oldArr => {
-          const newArr = oldArr
-          newArr[currentPixelIndex] = 0
-          return newArr
-        })
-      }
-
+      const decay = (Math.random() * 4) | 0
+      const intensityDecay = firePixelsArray[belowPixelIndex] - decay
+      const randomIndex = (Math.random() * 2) | 0
+      const indexArray = randomIndex
+        ? currentPixelIndex - decay
+        : currentPixelIndex + decay
       setFirePixelsArray(oldArr => {
         const newArr = oldArr
-        newArr[currentPixelIndex - decay] =
-          firePixelsArray[belowPixelIndex] - decay
+        newArr[indexArray] = intensityDecay
         return newArr
       })
     },
@@ -74,7 +69,7 @@ const DoomFire: React.FC<IDoomFireProps> = ({
       }
     }
 
-    forceUpdate()
+    setTimeout(forceUpdate, 50)
   }, [
     forceUpdate,
     fireWidth,
@@ -99,7 +94,8 @@ const DoomFire: React.FC<IDoomFireProps> = ({
   const renderFire = fireHeightArray.map(row => {
     const rowsColumns = fireWithArray.map(column => {
       const pixelIndex = column + fireWidth * row
-      const pixelIntensity = firePixelsArray[pixelIndex]
+      const pixelIntensity =
+        firePixelsArray[pixelIndex] >= 0 ? firePixelsArray[pixelIndex] : 0
 
       if (debug) {
         return (
@@ -120,10 +116,7 @@ const DoomFire: React.FC<IDoomFireProps> = ({
 
   const start = useCallback(() => {
     createFireSource()
-
-    setInterval(() => {
-      calculateFirePropagation()
-    }, 1000)
+    calculateFirePropagation()
   }, [createFireSource, calculateFirePropagation])
 
   useEffect(() => {

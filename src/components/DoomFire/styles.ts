@@ -6,11 +6,12 @@ export const Container = styled.section`
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  background-color: #282a36;
 `
 
 export const Table = styled.table`
   border-collapse: collapse;
-  background-color: #fff;
+  background: #fff;
 
   box-shadow: 0 2px 20px -10px rgba(0, 0, 0, 1);
 `
