@@ -51,6 +51,7 @@ const DoomFire: React.FC<IDoomFireProps> = ({
       const indexArray = randomIndex
         ? currentPixelIndex - decay
         : currentPixelIndex + decay
+
       setFirePixelsArray(oldArr => {
         const newArr = oldArr
         newArr[indexArray] = intensityDecay
